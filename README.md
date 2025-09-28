@@ -15,3 +15,32 @@ Sovellus tukee **CRUD-toimintoja** sekä Thymeleafin kautta että **REST-rajapin
 Lisäominaisuutena sovellus laskee käyttäjän **nettopalkan** kirjattujen työtuntien ja käyttäjän tuntipalkan perusteella, huomioiden **vakiovähennykset**.
 
 Sovellus voidaan julkaista esim. Herokuun tai AWS:ään käyttäen ulkoista tietokantaa, kuten PostgreSQL:ää tai MySQL:ää.
+
+
+## Käyttöliittymä
+
+### Kirjautuminen
+Käyttäjälle avautuu ensin **kirjautumissivu**, jossa kysytään:
+- **Käyttäjätunnus**
+- **Salasana**
+
+Kirjautumisen jälkeen käyttäjän rooli (tavallinen käyttäjä / admin) määrittää, mitä sisältöä ja toimintoja hän näkee.
+
+### Tavallisen käyttäjän näkymä
+Tavallinen käyttäjä näkee:
+- Oman työaikataulun taulukkona (päivämäärä, työtunnit, kuvaus)
+- Kirjattujen tuntien yhteenvedon (esim. viikko/kuukausi)
+- Brutto- ja nettopalkan automaattisesti laskettuna
+
+Käyttäjä ei voi lisätä, muokata tai poistaa tietoja – ainoastaan tarkastella niitä ja kirjautua ulos.
+
+### Admin-käyttäjän näkymä
+Admin näkee hallintapaneelin, jossa voidaan:
+- Lisätä uusia työaikakirjauksia
+- Muokata ja poistaa olemassa olevia kirjauksia
+- Lisätä ja hallita käyttäjiä (esim. tuntipalkka, veroprosentti)
+- Tarkastella kaikkien käyttäjien työtunteja ja palkanlaskentaa
+
+### Ulkoasu
+- Selkeä ja yksinkertainen käyttöliittymä, jossa on yläpalkki, taulukot ja painikkeet
+- Lomakkeissa on validoinnit (esim. tuntimäärä ei voi olla negatiivinen)
